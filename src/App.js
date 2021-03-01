@@ -1,25 +1,31 @@
-import logo from './logo.svg';
 import './App.css';
-
+import { useState }  from "react";
 function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+  var a = 20
+  function increament(){
+    a = a+1;
+    a=a+1
+    console.log(a);
+  }
+  const [value, setVAlue] =   useState(0)
+  function incrementState(){
+    setVAlue(function(prev){
+      return prev+1;
+    })
+  }
+  return (<><div className="App">
+    <div>Normal Variable {a} </div>
+    <button onClick={ increament }>Plus</button>
+    <br />
+    <br />
+    <br />
+    <div>State Variable {value} </div>
+    
+      <button onClick={ incrementState }>
+        Plus
+      </button>
     </div>
-  );
+</>);
 }
 
 export default App;
